@@ -17,7 +17,7 @@ function Hero() {
             href="/productsListing"
           >
             View Collection
-          </Link>y
+          </Link>
         <p className="md:text-sm text-lg lg:text-lg lg:pr-10 leading-relaxed">
           A new era in eco-friendly furniture with Avelon, the French luxury
           retail brand with nice fonts, tasteful colors, and a beautiful way to
