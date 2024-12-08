@@ -8,7 +8,7 @@ function NewCaramics() {
   return (
     <div className="flex flex-col gap-10 my-20 mx-20 over">
         <h1 className="text-[32px] leading-[39.36px] md:text-start text-center">New ceramics</h1>
-        <div className="flex gap-6 flex-wrap md:justify-start justify-center">
+        <div className="flex gap-6 lg:flex-nowrap flex-wrap md:justify-start justify-center">
 
         <Link href={'/productsListing/product1'}>
         <ProductsProp

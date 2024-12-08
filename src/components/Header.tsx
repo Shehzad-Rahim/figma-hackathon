@@ -44,25 +44,25 @@ function Header() {
           isMenuOpen ? 'flex' : 'hidden'
         } sm:flex flex-col sm:flex-row justify-center gap-4 sm:gap-11 my-5 px-5`}
       >
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Plant pots</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Caramics</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Tables</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Chairs</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Crockery</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Tableware</Link>
         </li>
-        <li className='border-b pb-3'>
+        <li className='border-b pb-3 sm:border-none sm:pb-0'>
           <Link href={'/'}>Cutlery</Link>
         </li>
       </ul>

@@ -16,8 +16,8 @@ export default function Products() {
         <Image src={productbanner} alt="product banner"></Image>
         
       <div className="flex flex-col gap-5 mx-20">
-    <div className="flex justify-center gap-6 flex-wrap my-10">
-    <div className="flex gap-6">
+      <div className="flex  gap-6 my-10">
+      <div className="flex flex-wrap sm:justify-start justify-center gap-6">
         <Link href={''}>
         <ProductsProp
         image={p1}
@@ -59,8 +59,8 @@ export default function Products() {
         
       
     </div>
-    <div className="flex justify-center gap-6 flex-wrap my-10">
-    <div className="flex gap-6">
+   <div className="flex  gap-6 my-10">
+    <div className="flex flex-wrap sm:justify-start justify-center gap-6">
         <Link href={''}>
         <ProductsProp
         image={p5}
@@ -102,8 +102,8 @@ export default function Products() {
         
       
     </div>
-    <div className="flex justify-center gap-6 flex-wrap my-10">
-    <div className="flex gap-6">
+    <div className="flex  gap-6 my-10">
+    <div className="flex flex-wrap sm:justify-start justify-center gap-6">
         <Link href={''}>
         <ProductsProp
         image={p1}

@@ -12,7 +12,7 @@ function ProductsProp({ image, P_alt, title, price }: Caramics) {
   return (
     <div className="flex flex-col gap-4 md:w-auto mx-auto">
       <Image
-        className='sm:w-[305px] sm:h-[462px] w-[200px] h-[335px]'
+        className='xl:w-[305px] xl:h-[462px] md:w-[280px] md:h-[442px]  w-[200px] h-[335px]'
         src={image}
         alt={P_alt}
       />
