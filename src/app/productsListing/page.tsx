@@ -13,11 +13,11 @@ import productbanner from '../../../public/images/products.png'
 export default function Products() {
     return (
     <>
-        <Image src={productbanner} alt="product banner"></Image>
+        <Image className="w-full" src={productbanner} alt="product banner"></Image>
         
-      <div className="flex flex-col gap-5 mx-20">
+      <div className="flex flex-col gap-5 md:mx-20 sm:mx-10">
       <div className="flex  gap-6 my-10">
-      <div className="flex flex-wrap sm:justify-start justify-center gap-6">
+      <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
         <Link href={''}>
         <ProductsProp
         image={p1}
@@ -60,7 +60,8 @@ export default function Products() {
       
     </div>
    <div className="flex  gap-6 my-10">
-    <div className="flex flex-wrap sm:justify-start justify-center gap-6">
+   <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
+
         <Link href={''}>
         <ProductsProp
         image={p5}
@@ -103,7 +104,7 @@ export default function Products() {
       
     </div>
     <div className="flex  gap-6 my-10">
-    <div className="flex flex-wrap sm:justify-start justify-center gap-6">
+    <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
         <Link href={''}>
         <ProductsProp
         image={p1}
@@ -145,7 +146,9 @@ export default function Products() {
         
       
     </div>
-    <Link className="flex justify-center items-center mx-auto mb-10 w-[170px] h-[56px] bg-[#f9f9f9]" href={'/productsListing'}>View collection</Link>
+    <div className="flex justify-center items-center mx-auto my-10  sm:w-[200px] w-full h-[56px] ">
+    <Link className=" py-4 px-6   bg-[#f9f9f9]" href={'/productsListing'}>View collection</Link>
+    </div>
     </div>
     </>
     );

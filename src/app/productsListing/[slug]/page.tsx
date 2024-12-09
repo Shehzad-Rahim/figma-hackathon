@@ -1,10 +1,11 @@
-'use client';
-import { useState } from 'react';
+'use client'
+import { useState } from "react";
 import { products } from '../../productsdata/data';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeIntro from '@/components/HomeIntro';
 import JoinClub from '@/components/JoinClub';
+import NewCaramics from "@/components/NewCaramics";
 
 const ProductsListing = ({ params }: { params: { slug: string } }) => {
   const product = products.find((product) => product.slug === params.slug);
@@ -12,12 +13,9 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
 
   if (!product) {
     return (
-      <div className="h-[70vh] flex flex-col items-center justify-between">
-        <p className="text-center mt-20 text-3xl underline">Product not found</p>
-        <Link
-          className="py-4 px-8 my-10 bg-[#2a254b] text-white"
-          href={'/'}
-        >
+      <div className='h-[70vh] flex flex-col items-center justify-center'>
+        <p className='text-center text-3xl underline'>Product not found</p>
+        <Link className='py-4 px-8 my-10 bg-[#2a254b] text-white' href={'/'}>
           Go To Homepage
         </Link>
       </div>
@@ -38,62 +36,41 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-4">
-        {/* Product Image */}
-        <div className="md:w-1/2 w-full">
-          {product.content.map((content) => {
-            switch (content.type) {
-              case 'mainImage':
-                return (
-                  <Image
-                    className="w-full md:w-[721px] md:h-[759px]"
-                    src={content.value}
-                    alt="blog image"
-                    width={500}
-                    height={0}
-                  />
-                );
-              default:
-                return null;
+      <div className='flex flex-col sm:flex-row lg:gap-4 lg:p-20 sm:px-4'>
+        {/* Product Image Section */}
+        <div className='w-full lg:w-1/2'>
+          {product.content.map((content, index) => {
+            if (content.type === 'mainImage') {
+              return (
+                <Image
+                  key={index}
+                  className='w-full h-auto object-cover max-w-[721px] lg:max-h-[759px] sm:min-h-[559px] sm:min-w-[521px]'
+                  src={content.value}
+                  alt='Product Image'
+                  width={500}
+                  height={500}
+                />
+              );
             }
+            return null;
           })}
         </div>
 
-        {/* Product Details */}
-        <div className="flex flex-col gap-5 p-6 md:p-20 md:w-1/2 w-full">
+        {/* Product Details Section */}
+        <div className='flex flex-col justify-center gap-3 px-6 py-5 lg:p-20 w-full lg:w-1/2'>
           {product.content.map((content, index) => {
             switch (content.type) {
               case 'heading':
-                return (
-                  <h2 className="text-2xl md:text-4xl" key={index}>
-                    {content.value}
-                  </h2>
-                );
+                return <h2 className='text-4xl font-semibold' key={index}>{content.value}</h2>;
               case 'price':
-                return (
-                  <p className="font-semibold text-xl md:text-2xl">
-                    {content.value}
-                  </p>
-                );
+                return <p className='font-semibold text-2xl' key={index}>{content.value}</p>;
               case 'paragraph':
               case 'desc':
-                return (
-                  <p
-                    className="text-[14px] md:sm:text-[16px]"
-                    key={index}
-                  >
-                    {content.value}
-                  </p>
-                );
+                return <p className='text-base sm:text-sm' key={index}>{content.value}</p>;
               case 'list':
                 return (
-                  <ul className="mt-2 -mb-6">
-                    <li
-                      className="list-disc list-inside ml-4 text-[14px] md:text-[16px]"
-                      key={index}
-                    >
-                      {content.value}
-                    </li>
+                  <ul className='mt-2 list-disc list-inside' key={index}>
+                    <li className='text-sm'>{content.value}</li>
                   </ul>
                 );
               default:
@@ -102,50 +79,39 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
           })}
 
           {/* Dimensions Section */}
-          <div className="mt-14">
-            <p>Dimensions</p>
-            <div className="grid grid-cols-3 gap-4 my-4 text-center md:text-left">
-              <p>Height</p>
-              <p>Width</p>
-              <p>Depth</p>
-              <p>110cm</p>
-              <p>75cm</p>
-              <p>50cm</p>
+          <div className='mt-10'>
+            <p className='text-lg font-medium'>Dimensions</p>
+            <div className='grid grid-cols-3 gap-4 mt-4 text-center '>
+              <div className="flex gap-8 py-2 justify-between sm:w-[200px] w-[80%]">
+                <p className='text-sm font-semibold'>Height</p>
+                <p className='text-sm font-semibold'>Width</p>
+                <p className='text-sm font-semibold'>Depth</p>
+              </div>
+              <div className="flex py-2 justify-between sm:w-[200px] w-[80%]">
+                <p className='text-sm'>110cm</p>
+                <p className='text-sm'>75cm</p>
+                <p className='text-sm'>50cm</p>
+              </div>
+              
             </div>
           </div>
 
-          {/* Quantity and Add to Cart */}
-          <div className="flex flex-col lg:flex-row justify-between gap-4 items-center">
-            <div className="flex sm:gap-5 gap-40 items-center">
-              <p className=''>Amount:</p>
-              <div className="flex">
-                <button
-                  type="button"
-                  onClick={decrease}
-                  className="bg-[#f9f9f9] py-2 px-4"
-                >
-                  -
-                </button>
-                <button className="bg-[#f9f9f9] py-2 px-4">
-                  {count}
-                </button>
-                <button
-                  type="button"
-                  onClick={increase}
-                  className="bg-[#f9f9f9] py-2 px-4"
-                >
-                  +
-                </button>
+          {/* Amount and Add to Cart */}
+          <div className='flex flex-col sm:flex-row justify-between items-center mt-6 gap-4'>
+            <div className='flex items-center gap-4'>
+              <p className='text-sm sm:block hidden'>Amount:</p>
+              <div className='flex items-center border border-gray-300'>
+                <button onClick={decrease} className='px-3 py-2 bg-gray-100'>-</button>
+                <p className='px-4 py-2'>{count}</p>
+                <button onClick={increase} className='px-3 py-2 bg-gray-100'>+</button>
               </div>
             </div>
-            <button className=" sm:w-[143px] h-[56px] w-full bg-[#2a254b] text-white">
-              Add to cart
-            </button>
+            <button className='py-3 px-6 bg-[#2a254b] text-white sm:w-auto w-full'>Add to cart</button>
           </div>
         </div>
       </div>
 
-      {/* Additional Components */}
+      <NewCaramics />
       <HomeIntro />
       <JoinClub />
     </>
