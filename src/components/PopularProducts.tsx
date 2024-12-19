@@ -10,7 +10,7 @@ function PopularProducts() {
       <h1 className="text-[32px] leading-[39.36px] text-center xl:text-left">
         Our Popular Products
       </h1>
-      <div className="overflow-scroll scroll-m-2 sm:overflow-hidden">
+      <div className="overflow-x-scroll scroll-p-4 scroll-smooth scroll-m-2 sm:overflow-hidden">
       <div className="flex sm:flex-wrap w-[1100px] sm:w-auto sm:justify-center xl:justify-start gap-6">
         
         <div className="flex flex-col sm:gap-4 gap-1">

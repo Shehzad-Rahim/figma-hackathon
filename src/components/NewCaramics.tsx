@@ -39,7 +39,7 @@ function NewCaramics() {
         />
         </Link>
 
-        <Link href={'/productsListing/product3'}>
+        <Link href={'/productsListing/product4'}>
         <ProductsProp
         image={p4}
         P_alt="The Lucy Lamp"
