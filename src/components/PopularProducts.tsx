@@ -11,7 +11,7 @@ function PopularProducts() {
         Our Popular Products
       </h1>
       <div className="overflow-x-scroll scroll-p-4 scroll-smooth scroll-m-2 sm:overflow-hidden">
-      <div className="flex sm:flex-wrap w-[1100px] sm:w-auto sm:justify-center xl:justify-start gap-6">
+      <div className="flex xl:flex-nowrap sm:flex-wrap w-[1100px] sm:w-auto sm:justify-center xl:justify-start gap-6">
         
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="md:w-[633px] sm:w-[520px] w-[400px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p1} alt="sofa"></Image>
