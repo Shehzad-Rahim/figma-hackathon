@@ -4,7 +4,7 @@ import chair from "../../public/Hero/Right Image.png";
 
 function Hero() {
   return (
-    <div className="flex flex-col md:items-center lg:flex-row text-white my-10  lg:px-20">
+    <div className="flex flex-col md:items-center lg:flex-row text-white sm:my-10 mb-5  lg:px-20">
       {/* Left Section */}
       <div className="flex flex-col lg:w-[760px] md:w-[80%] lg:h-[584px] sm:h-[420px] justify-between bg-[#2a254b] px-6 lg:px-10 py-10 lg:py-16 gap-8">
         <div className="flex flex-col gap-6">

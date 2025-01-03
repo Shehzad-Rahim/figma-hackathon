@@ -111,7 +111,7 @@ function Footer() {
               type="email"
               placeholder="your@email.com"
             />
-            <button className="text-[#2a254b] bg-white h-[56px] px-6">
+            <button className="text-[#2a254b] bg-white h-[56px] sm:px-6 px-4">
               Sign up
             </button>
           </div>

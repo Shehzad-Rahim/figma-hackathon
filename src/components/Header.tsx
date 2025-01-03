@@ -13,7 +13,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="py-5">
+    <div className="sm:py-5 pt-5">
       {/* Top Header Section */}
       <div className="flex justify-between items-center sm:px-10 px-5 border-b pb-5">
       <Link className='sm:hidden block' href={'/'}>
@@ -49,7 +49,7 @@ function Header() {
       <ul
         className={`${
           isMenuOpen ? 'flex' : 'hidden'
-        } sm:flex flex-col sm:flex-row justify-center gap-4 sm:gap-11 my-5 px-5 sm:relative absolute sm:bg-none bg-white sm:w-auto w-full sm:bg-opacity-100 bg-opacity-90 `}
+        } sm:flex flex-col sm:flex-row justify-center gap-4 sm:gap-11 py-5 px-5 sm:relative absolute sm:bg-none bg-white sm:w-auto w-full sm:bg-opacity-100 bg-opacity-90 `}
       >
         <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
           <Link href={'/'}>Plant pots</Link>

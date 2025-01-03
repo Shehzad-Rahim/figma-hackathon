@@ -20,13 +20,13 @@ function PopularProducts() {
         </div>
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="sm:w-[305px] w-[300px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p2} alt="sofa"></Image>
-        <h2 className="sm:text-xl  text-center lg:text-left">Sofa Suede</h2>
-        <p className="sm:text-lg text-center lg:text-left">$1200</p>
+        <h2 className="sm:text-xl  text-center lg:text-left">The Dandy Chair</h2>
+        <p className="sm:text-lg text-center lg:text-left">$250</p>
         </div>
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="sm:w-[305px] w-[300px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p3} alt="sofa"></Image>
-        <h2 className="sm:text-xl  text-center lg:text-left">Sofa Suede</h2>
-        <p className="sm:text-lg text-center lg:text-left">$1200</p>
+        <h2 className="sm:text-xl  text-center lg:text-left">The Classic Grey</h2>
+        <p className="sm:text-lg text-center lg:text-left">$300</p>
         </div>
 
        
