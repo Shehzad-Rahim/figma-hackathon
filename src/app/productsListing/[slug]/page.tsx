@@ -8,8 +8,6 @@ import JoinClub from '@/components/JoinClub';
 import NewCaramics from "@/components/NewCaramics";
 import { CartItem } from "@/app/shoppingbasket/page";
 import { toast } from "sonner"
-import { Toaster } from "@/components/ui/sonner";
-import ProductNotifiction from "@/components/ProductNotifiction";
 
 
 const ProductsListing = ({ params }: { params: { slug: string } }) => {
