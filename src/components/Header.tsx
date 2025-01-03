@@ -25,6 +25,9 @@ function Header() {
         </Link>
         <div className="flex gap-4 items-center">
         <Search className="w-4 h-4 sm:hidden block" />
+          <Link className='sm:hidden' href={'/shoppingbasket'}>
+              <ShoppingCart className="w-4 h-4" />
+            </Link>
           {/* Menu Button for Small Screens */}
           <button
             className="sm:hidden"
