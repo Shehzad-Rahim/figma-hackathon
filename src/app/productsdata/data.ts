@@ -1,16 +1,18 @@
 interface Products {
+    id : number
     slug : string
     title : string
     content: Content[]
 }
 interface Content {
-    type: string
+    type: string 
     value: string
     
 }
 
 export const products : Products[] = [
     {
+        id : 1,
         slug : 'product1',
         title: 'The Dandy Chair',
         content: [
@@ -27,6 +29,7 @@ export const products : Products[] = [
         ]
     },
     {
+        id : 2,
         slug : 'product2',
         title: 'Rustic Vase Set',
         content: [
@@ -43,6 +46,7 @@ export const products : Products[] = [
         ]
     },
     {
+        id : 3,
         slug : 'product3',
         title: 'The Silky Vase',
         content: [
@@ -59,6 +63,7 @@ export const products : Products[] = [
         ]
     },
     {
+        id : 4,
         slug : 'product4',
         title: 'The Lucky Lamp',
         content: [

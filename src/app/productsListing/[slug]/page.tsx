@@ -6,6 +6,11 @@ import Link from 'next/link';
 import HomeIntro from '@/components/HomeIntro';
 import JoinClub from '@/components/JoinClub';
 import NewCaramics from "@/components/NewCaramics";
+import { CartItem } from "@/app/shoppingbasket/page";
+import { toast } from "sonner"
+import { Toaster } from "@/components/ui/sonner";
+import ProductNotifiction from "@/components/ProductNotifiction";
+
 
 const ProductsListing = ({ params }: { params: { slug: string } }) => {
   const product = products.find((product) => product.slug === params.slug);
@@ -32,6 +37,37 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
     if (count > 0) {
       setState(count - 1);
     }
+  };
+
+  // Add to cart functionality
+   const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const existingItem : CartItem = cart.find((item : CartItem) => item.id === product.id);
+
+    if (existingItem) {
+      // Update quantity
+      const updatedCart : CartItem = cart.map((item: CartItem) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + count }
+          : item
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+    } else {
+      // Add new product to cart
+      const cartItem = {
+        id: product.id,
+        name: product.content.find((content) => content.type === "heading")?.value,
+        price: parseFloat(
+          product.content.find((content) => content.type === "price")?.value.replace(/[^0-9.-]+/g, "") || "0"
+        ),
+        quantity: count,
+        image: product.content.find((content) => content.type === "mainImage")?.value,
+      };
+      localStorage.setItem("cart", JSON.stringify([...cart, cartItem]));
+    }
+    
+    toast.success(`${count} ${product.title} added to the cart!`)
+    setState(1); // Reset count
   };
 
   return (
@@ -92,7 +128,6 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
                 <p className='text-sm'>75cm</p>
                 <p className='text-sm'>50cm</p>
               </div>
-              
             </div>
           </div>
 
@@ -106,7 +141,12 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
                 <button onClick={increase} className='px-3 py-2 bg-gray-100'>+</button>
               </div>
             </div>
-            <button className='py-3 px-6 bg-[#2a254b] text-white sm:w-auto w-full'>Add to cart</button>
+            
+            <button 
+              onClick={addToCart}
+              className='py-3 px-6 bg-[#2a254b] text-white sm:w-auto w-full'>
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
@@ -118,4 +158,5 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default ProductsListing;
+
+export default ProductsListing
