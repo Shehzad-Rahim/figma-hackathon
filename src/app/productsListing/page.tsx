@@ -21,7 +21,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p1}
-        P_alt="chair"
         title="The Dandy Chair"
         price={250}
         
@@ -30,7 +29,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p2}
-        P_alt="Rustic Vase Set"
         title="Rustic Vase Set"
         price={155}
        
@@ -39,7 +37,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p3}
-        P_alt="The Silky Vase"
         title="The Silky Vase"
         price={125}
         
@@ -49,7 +46,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p4}
-        P_alt="The Lucy Lamp"
         title="The Lucy Lamp"
         price={250}
        
@@ -65,7 +61,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p5}
-        P_alt="chair"
         title="The Dandy Chair"
         price={250}
        
@@ -74,7 +69,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p6}
-        P_alt="Rustic Vase Set"
         title="Rustic Vase Set"
         price={155}
         
@@ -83,7 +77,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p7}
-        P_alt="The Silky Vase"
         title="The Silky Vase"
         price={125}
         
@@ -93,7 +86,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p8}
-        P_alt="The Lucy Lamp"
         title="The Lucy Lamp"
         price={250}
         
@@ -108,7 +100,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p1}
-        P_alt="chair"
         title="The Dandy Chair"
         price={250}
        
@@ -117,7 +108,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p2}
-        P_alt="Rustic Vase Set"
         title="Rustic Vase Set"
         price={155}
        
@@ -126,7 +116,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p3}
-        P_alt="The Silky Vase"
         title="The Silky Vase"
         price={125}
        
@@ -136,7 +125,6 @@ export default function Products() {
         <Link href={''}>
         <ProductsProp
         image={p4}
-        P_alt="The Lucy Lamp"
         title="The Lucy Lamp"
         price={250}
        

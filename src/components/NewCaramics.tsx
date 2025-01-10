@@ -10,39 +10,35 @@ function NewCaramics() {
         <h1 className="text-[32px] leading-[39.36px] lg:text-start text-center">New ceramics</h1>
         <div className="flex gap-6 lg:flex-nowrap flex-wrap lg:justify-start justify-center">
 
-        <Link href={'/productsListing/product1'}>
+        <Link href={'/productsListing/the-dandy-chair'}>
         <ProductsProp
         image={p1}
-        P_alt="chair"
         title="The Dandy Chair"
         price={250}
         
         />
         </Link>
 
-        <Link href={'/productsListing/product2'}>
+        <Link href={'/productsListing/rustic-vase-set'}>
         <ProductsProp
         image={p2}
-        P_alt="Rustic Vase Set"
         title="Rustic Vase Set"
         price={155}
        
         />
         </Link>
-        <Link href={'/productsListing/product3'}>
+        <Link href={'/productsListing/the-silky-vase'}>
         <ProductsProp
         image={p3}
-        P_alt="The Silky Vase"
         title="The Silky Vase"
         price={125}
        
         />
         </Link>
 
-        <Link href={'/productsListing/product4'}>
+        <Link href={'/productsListing/the-lucy-lamp'}>
         <ProductsProp
         image={p4}
-        P_alt="The Lucy Lamp"
         title="The Lucy Lamp"
         price={250}
         

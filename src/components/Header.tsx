@@ -11,11 +11,19 @@ import Link from 'next/link';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navLinks = [
+    {title : "Plant pots", href : "" },
+    {title : "Caramics", href : "" },
+    {title : "Tables", href : "" },
+    {title : "Chairs", href : "" },
+    {title : "Crockery", href : "" },
+    {title : "Tableware", href : "" },
+    {title : "Cutlery", href : "" },
+  ]
   return (
     <div className="sm:py-5 pt-5">
       {/* Top Header Section */}
-      <div className="flex justify-between items-center sm:px-10 px-5 border-b pb-5">
+      <div className="flex justify-between items-center sm:px-10 px-5 border-b pb-5 bg-white">
       <Link className='sm:hidden block' href={'/'}>
           <h1 className="text-2xl leading-[29.52px]">Avion</h1>
         </Link>
@@ -51,27 +59,12 @@ function Header() {
           isMenuOpen ? 'flex' : 'hidden'
         } sm:flex flex-col sm:flex-row justify-center gap-4 sm:gap-11 py-5 px-5 sm:relative absolute sm:bg-none bg-white sm:w-auto w-full sm:bg-opacity-100 bg-opacity-90 `}
       >
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Plant pots</Link>
+        {navLinks.map((item, i)=> (
+        <li key={i} className='border-b sm:border-none border-gray-400 sm:p-0 p-3  sm:pb-0 hover:bg-white'>
+          <Link href={item.href}>{item.title}</Link>
         </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Caramics</Link>
-        </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Tables</Link>
-        </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Chairs</Link>
-        </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Crockery</Link>
-        </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Tableware</Link>
-        </li>
-        <li className='border-b pb-3 sm:border-none sm:pb-0 hover:bg-white'>
-          <Link href={'/'}>Cutlery</Link>
-        </li>
+        ))}
+        
       </ul>
     </div>
   );

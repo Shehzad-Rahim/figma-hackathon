@@ -12,23 +12,27 @@ function PopularProducts() {
       </h1>
       <div className="overflow-x-scroll scroll-p-4 scroll-smooth scroll-m-2 sm:overflow-hidden">
       <div className="flex xl:flex-nowrap sm:flex-wrap w-[1100px] sm:w-auto sm:justify-center xl:justify-start gap-6">
-        
+      <Link href={'/productsListing/sofa-suede'}>
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="md:w-[633px] sm:w-[520px] w-[400px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p1} alt="sofa"></Image>
         <h2 className="sm:text-xl  text-center lg:text-left">Sofa Suede</h2>
         <p className="sm:text-lg text-center lg:text-left">$1200</p>
         </div>
+      </Link>
+      <Link href={'/productsListing/the-dandy-chair'}>
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="sm:w-[305px] w-[300px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p2} alt="sofa"></Image>
         <h2 className="sm:text-xl  text-center lg:text-left">The Dandy Chair</h2>
         <p className="sm:text-lg text-center lg:text-left">$250</p>
         </div>
+      </Link>
+        <Link href={'/productsListing/the-dandy-chair-grey'}>
         <div className="flex flex-col sm:gap-4 gap-1">
         <Image className="sm:w-[305px] w-[300px] xl:h-[462px] md:h-[420px] sm:h-[335px] h-[300px]" src={p3} alt="sofa"></Image>
-        <h2 className="sm:text-xl  text-center lg:text-left">The Classic Grey</h2>
+        <h2 className="sm:text-xl  text-center lg:text-left">The Dandy Chair</h2>
         <p className="sm:text-lg text-center lg:text-left">$300</p>
         </div>
-
+        </Link>
        
       </div>
       </div>

@@ -8,99 +8,37 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
+  const social =[
+    {icon: <FaLinkedin/> , href: ""},
+    {icon: <FaFacebookSquare/> , href: ""},
+    {icon: <FaInstagram/> , href: ""},
+    {icon: <FaSkype/> , href: ""},
+    {icon: <FaTwitter/> , href: ""},
+    {icon: <FaPinterestP/> , href: ""},
+  ]
   return (
     <div className="px-5 md:px-20 xl:px-28 bg-[#2a254b] text-white">
       {/* Top Section */}
       <div className="py-10 flex flex-wrap justify-between border-b border-[#4e4d93] gap-8 md:gap-0">
         {/* Menu */}
-        <ul className="flex flex-col gap-3">
-          <li className="font-bold">Menu</li>
-          <li>
-            <Link className="text-sm" href="">
-              New Arrivals
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Best sellers
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Recently viewed
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Popular this week
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              All products
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-bold mb-3">Menu</h3>
+          <FooterUl />
+        </div>
 
         {/* Categories */}
-        <ul className="flex flex-col gap-3">
-          <li className="font-bold">Categories</li>
-          <li>
-            <Link className="text-sm" href="">
-              New Arrivals
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Best sellers
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Recently viewed
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Popular this week
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              All products
-            </Link>
-          </li>
-        </ul>
+        
+        <div>
+          <h3 className="font-bold mb-3">Categories</h3>
+          <FooterUl />
+        </div>
+        
 
         {/* Our Company */}
-        <ul className="flex flex-col gap-3">
-          <li className="font-bold">Our Company</li>
-          <li>
-            <Link className="text-sm" href="">
-              New Arrivals
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Best sellers
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Recently viewed
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              Popular this week
-            </Link>
-          </li>
-          <li>
-            <Link className="text-sm" href="">
-              All products
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <h3 className="font-bold mb-3">Our Company</h3>
+          <FooterUl />
+        </div>
 
         {/* Mailing List */}
         <div className="flex flex-col gap-4">
@@ -123,29 +61,40 @@ function Footer() {
         <p className="text-sm text-center sm:text-left">
           Copyright 2024 Avion LTD
         </p>
-        <div className="sm:flex hidden gap-6">
-          <Link className="text-xl text-white" href="">
-            <FaLinkedin />
+        <ul className="sm:flex hidden gap-6">
+          {social.map((icons , i) => (
+            <li key={i}>
+              <Link className="text-xl text-white" href="">
+            {icons.icon}
           </Link>
-          <Link className="text-xl text-white" href="">
-            <FaFacebookSquare />
-          </Link>
-          <Link className="text-xl text-white" href="">
-            <FaInstagram />
-          </Link>
-          <Link className="text-xl text-white" href="">
-            <FaSkype />
-          </Link>
-          <Link className="text-xl text-white" href="">
-            <FaTwitter />
-          </Link>
-          <Link className="text-xl text-white" href="">
-            <FaPinterestP />
-          </Link>
-        </div>
+            </li>
+          ))}
+          
+        </ul>
       </div>
     </div>
   );
 }
 
 export default Footer;
+
+export function FooterUl(){
+  const listItems :{item:string}[] = [
+    {item : "New Arrivals"},
+    {item : "Best Sellers"},
+    {item : "Recently Viewed"},
+    {item : "Popular This Week"},
+    {item : "All Products"},
+  ]
+  return(
+    <div>
+      <ul className="flex flex-col gap-3">
+        {listItems.map((item , i) => (
+          <li key={i}>
+            <Link className="text-sm" href="">{item.item}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
