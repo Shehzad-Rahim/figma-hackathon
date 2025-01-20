@@ -1,3 +1,4 @@
+
 interface Products {
     id : number
     slug : string
@@ -114,3 +115,5 @@ export const products : Products[] = [
         ]
     },
 ]
+
+

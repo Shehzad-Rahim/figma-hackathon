@@ -1,142 +1,42 @@
 import ProductsProp from "@/components/ProductsProp";
 import Link from "next/link"
 import Image from "next/image";
-import p1 from '../../../public/New Caramics/1.png'
-import p2 from '../../../public/New Caramics/2.png'
-import p3 from '../../../public/New Caramics/3.png'
-import p4 from '../../../public/New Caramics/4.png'
-import p5 from '../../../public/New Caramics/5.png'
-import p6 from '../../../public/New Caramics/6.png'
-import p7 from '../../../public/New Caramics/7.png'
-import p8 from '../../../public/New Caramics/8.png'
 import productbanner from '../../../public/images/products.png'
-export default function Products() {
+import { client } from '../../sanity/lib/client';
+import { allProductsQuery } from "@/sanity/fetchQueries";
+import { ProductsCardType } from "@/sanity/schemaTypes/productType";
+
+export default async function Products() {
+  
+  const products = await client.fetch(allProductsQuery, {}, {cache: "no-store"})
+ 
     return (
     <>
-        <Image className="w-full" src={productbanner} alt="product banner"></Image>
+      <Image className="w-full" src={productbanner} alt="product banner"></Image>
         
       <div className="flex flex-col gap-5 md:mx-20 sm:mx-10">
+      
       <div className="flex  gap-6 my-10">
-      <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
-        <Link href={''}>
+        <div  className="flex flex-wrap sm:justify-start justify-center gap-6">
+        {products.map((product:ProductsCardType)=>(
+
+        <Link key={product._id} href={`/productsListing/${product.slug.current}`}>
         <ProductsProp
-        image={p1}
-        title="The Dandy Chair"
-        price={250}
-        
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p2}
-        title="Rustic Vase Set"
-        price={155}
-       
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p3}
-        title="The Silky Vase"
-        price={125}
-        
+        image={product.image}
+        title={product.name}
+        price={product.price}
+
         />
         </Link>
 
-        <Link href={''}>
-        <ProductsProp
-        image={p4}
-        title="The Lucy Lamp"
-        price={250}
-       
-        />
-        </Link>
-        </div>
+        ))}
+
+      </div>
         
       
     </div>
-   <div className="flex  gap-6 my-10">
-   <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
-
-        <Link href={''}>
-        <ProductsProp
-        image={p5}
-        title="The Dandy Chair"
-        price={250}
-       
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p6}
-        title="Rustic Vase Set"
-        price={155}
-        
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p7}
-        title="The Silky Vase"
-        price={125}
-        
-        />
-        </Link>
-
-        <Link href={''}>
-        <ProductsProp
-        image={p8}
-        title="The Lucy Lamp"
-        price={250}
-        
-        />
-        </Link>
-        </div>
-        
       
-    </div>
-    <div className="flex  gap-6 my-10">
-    <div className="flex lg:flex-nowrap flex-wrap sm:justify-start justify-center gap-6">
-        <Link href={''}>
-        <ProductsProp
-        image={p1}
-        title="The Dandy Chair"
-        price={250}
-       
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p2}
-        title="Rustic Vase Set"
-        price={155}
-       
-        />
-        </Link>
-        <Link href={''}>
-        <ProductsProp
-        image={p3}
-        title="The Silky Vase"
-        price={125}
-       
-        />
-        </Link>
-
-        <Link href={''}>
-        <ProductsProp
-        image={p4}
-        title="The Lucy Lamp"
-        price={250}
-       
-        />
-        </Link>
-        </div>
-        
-      
-    </div>
-    <div className="flex justify-center items-center mx-auto my-10  sm:w-[200px] w-full h-[56px] ">
-    <Link className=" py-4 px-6   bg-[#f9f9f9]" href={'/productsListing'}>View collection</Link>
-    </div>
+     
     </div>
     </>
     );

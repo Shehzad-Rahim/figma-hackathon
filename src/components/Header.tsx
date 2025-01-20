@@ -8,20 +8,21 @@ import {
   AlignRight,
 } from 'lucide-react';
 import Link from 'next/link';
+import CategoriesNav from './CategoriesNav';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navLinks = [
-    {title : "Plant pots", href : "" },
-    {title : "Caramics", href : "" },
-    {title : "Tables", href : "" },
-    {title : "Chairs", href : "" },
-    {title : "Crockery", href : "" },
-    {title : "Tableware", href : "" },
-    {title : "Cutlery", href : "" },
-  ]
+  // const navLinks = [
+  //   {title : "Plant pots", href : "/category/plant-pots" },
+  //   {title : "Caramics", href : "/category/ceramics" },
+  //   {title : "Tables", href : "tables" },
+  //   {title : "Chairs", href : "chairs" },
+  //   {title : "Crockory", href : "crockory" },
+  //   {title : "Tableware", href : "tableware" },
+  //   {title : "Cutlery", href : "cutlery" },
+  // ]
   return (
-    <div className="sm:py-5 pt-5">
+    <div className="sm:pt-5 pt-5">
       {/* Top Header Section */}
       <div className="flex justify-between items-center sm:px-10 px-5 border-b pb-5 bg-white">
       <Link className='sm:hidden block' href={'/'}>
@@ -54,18 +55,13 @@ function Header() {
       </div>
 
       {/* Navigation Links */}
-      <ul
+      <div
         className={`${
           isMenuOpen ? 'flex' : 'hidden'
-        } sm:flex flex-col sm:flex-row justify-center gap-4 sm:gap-11 py-5 px-5 sm:relative absolute sm:bg-none bg-white sm:w-auto w-full sm:bg-opacity-100 bg-opacity-90 `}
+        } sm:flex flex-col sm:flex-row justify-center sm:relative absolute sm:w-auto w-full `}
       >
-        {navLinks.map((item, i)=> (
-        <li key={i} className='border-b sm:border-none border-gray-400 sm:p-0 p-3  sm:pb-0 hover:bg-white'>
-          <Link href={item.href}>{item.title}</Link>
-        </li>
-        ))}
-        
-      </ul>
+        <CategoriesNav />
+      </div>
     </div>
   );
 }
