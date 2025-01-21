@@ -21,6 +21,14 @@ async function getCategoryData(slug: string) {
   return data;
 }
 
+// Fetch all category slugs for static generation
+export async function generateStaticParams() {
+  const query = `*[_type == "category"] { "slug": slug.current }`;
+  const categories = await client.fetch(query);
+  return categories.map((category: { slug: string }) => ({
+    slug: category.slug,
+  }));
+}
 
 
 interface Category {

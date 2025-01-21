@@ -6,6 +6,13 @@ import { client } from '../../sanity/lib/client';
 import { allProductsQuery } from "@/sanity/fetchQueries";
 import { ProductsCardType } from "@/sanity/schemaTypes/productType";
 
+export async function generateStaticParams() {
+  const query = `*[_type == "product"] { "slug": slug.current }`;
+  const products = await client.fetch(query);
+  return products.map((product: { slug: string }) => ({
+    slug: product.slug,
+  }));
+}
 export default async function Products() {
   
   const products = await client.fetch(allProductsQuery, {}, {cache: "no-store"})
@@ -25,18 +32,11 @@ export default async function Products() {
         image={product.image}
         title={product.name}
         price={product.price}
-
         />
         </Link>
-
         ))}
-
       </div>
-        
-      
     </div>
-      
-     
     </div>
     </>
     );
