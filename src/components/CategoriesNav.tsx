@@ -39,7 +39,7 @@ const CategoriesNav = () => {
 
   return (
     <ul
-    className={`sm:flex flex-col sm:flex-row justify-center gap-4  py-5 sm:gap-11 sm:bg-none bg-white sm:bg-opacity-100 bg-opacity-90 `}
+    className='sm:flex flex-col sm:flex-row justify-center gap-4  py-5 sm:gap-11 sm:bg-none bg-white sm:bg-opacity-100 bg-opacity-90'
   >
     {categories.map((category)=> {
       const isActive = pathname.startsWith(`/category/${category.slug}`)
