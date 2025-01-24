@@ -330,7 +330,7 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
           <div className="flex flex-col sm:flex-row justify-between items-center mt-6 gap-4">
             <div className="flex items-center gap-4">
               <p className="text-sm sm:block hidden">Amount:</p>
-              <div className="flex items-center border border-gray-300">
+              <div className="flex items-center border bg-gray-400">
                 <button onClick={decrease} className="px-3 py-2 bg-gray-100">
                   -
                 </button>
