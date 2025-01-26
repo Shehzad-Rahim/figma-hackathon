@@ -34,7 +34,7 @@ const ProductsByTag = ({ tag }: { tag: string }) => {
   }, [tag]);
 
   if (products.length === 0) {
-    return <p className="text-center text-4xl text-[#2a254b] my-32">No products found for {tag}</p>;
+    return <div className=" flex items-center justify-center gap-3 text-2xl text-[#2a254b] my-32 capitalize">Loading {tag} <div className="w-[30px] h-[30px] border-t-2 border-b-2 border-l-2 border-blue-500 rounded-full animate-spin"></div> </div>;
   }
 
   return (

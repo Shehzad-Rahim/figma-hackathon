@@ -197,6 +197,7 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [product, setProduct] = useState<any | null>(null);
   const [count, setCount] = useState(1);
+  const [loading, setLoading] = useState(true)
 
   // Fetch product data based on slug
   useEffect(() => {
@@ -225,10 +226,15 @@ const ProductsListing = ({ params }: { params: { slug: string } }) => {
       } catch (error) {
         console.error("Error fetching product data:", error);
         router.push("/404");
+      } finally{
+        setLoading(false);
       }
     };
     fetchProduct();
   }, [params.slug, router]);
+
+  if (loading) {
+  }
 
   if (!product) {
     return (

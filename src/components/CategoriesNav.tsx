@@ -34,7 +34,7 @@ const CategoriesNav = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading categories... <span className="w-[30px] h-[30px] border-b-2 border-t-2 rounded-full border-blue-600 animate-spin"></span> </p>;
+    return <div className=" flex items-center justify-center gap-3 text-2xl text-[#2a254b] mt-5 capitalize">Loading <div className="w-[30px] h-[30px] border-t-2 border-b-2 border-l-2 border-blue-500 rounded-full animate-spin"></div> </div>;
   }
 
   return (
