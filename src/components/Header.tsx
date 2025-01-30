@@ -3,10 +3,15 @@ import { useState } from 'react';
 import {
   Search,
   ShoppingCart,
-  CircleUserRound,
   X,
   AlignRight,
 } from 'lucide-react';
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 import Link from 'next/link';
 import CategoriesNav from './CategoriesNav';
 
@@ -49,7 +54,12 @@ function Header() {
             <Link href={'/shoppingbasket'}>
               <ShoppingCart className="w-4 h-4" />
             </Link>
-            <CircleUserRound className="w-4 h-4" />
+             <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           </div>
         </div>
       </div>
