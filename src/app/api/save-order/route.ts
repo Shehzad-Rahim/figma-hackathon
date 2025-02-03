@@ -1,13 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@sanity/client";
+import { client } from "@/sanity/lib/client";
 import { currentUser } from "@clerk/nextjs/server"; // ✅ Correct import
 
-const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: "production",
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN, // Ensure this is added to `.env`
-});
+
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,7 +12,7 @@ export async function POST(req: NextRequest) {
     const { products, totalAmount, paymentStatus, paymentMethod, orderDate } = await req.json();
 
     // Create a new order in Sanity
-    const order = await sanityClient.create({
+    const order = await client.create({
       _type: "order",
       user: { _type: "reference", _ref: user.id }, // ✅ Reference to Clerk user ID
       products,
