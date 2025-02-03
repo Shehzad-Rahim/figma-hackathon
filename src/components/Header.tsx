@@ -1,66 +1,58 @@
 'use client'
-import { useState } from 'react';
 import {
   Search,
   ShoppingCart,
   X,
   AlignRight,
 } from 'lucide-react';
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
+import { useState , useContext } from 'react';
 import Link from 'next/link';
 import CategoriesNav from './CategoriesNav';
+import UserLogo from './UserLogo';
+import { CartContext } from '@/context/CartContext';
+
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const navLinks = [
-  //   {title : "Plant pots", href : "/category/plant-pots" },
-  //   {title : "Caramics", href : "/category/ceramics" },
-  //   {title : "Tables", href : "tables" },
-  //   {title : "Chairs", href : "chairs" },
-  //   {title : "Crockory", href : "crockory" },
-  //   {title : "Tableware", href : "tableware" },
-  //   {title : "Cutlery", href : "cutlery" },
-  // ]
+  const cartContext = useContext(CartContext);
+  if(!cartContext){
+    return null
+  }
+  const { cartQuantity } = cartContext;
   return (
     <div className="sm:pt-5 pt-5">
       {/* Top Header Section */}
       <div className="flex justify-between items-center sm:px-10 px-5 border-b pb-5 bg-white">
-      <Link className='sm:hidden block' href={'/'}>
+        <div className="flex sm:flex-row-reverse justify-between items-center sm:w-1/2 w-full sm:mr-0 mr-[10px]">
+      <Link href={'/'}>
           <h1 className="text-2xl leading-[29.52px]">Avion</h1>
         </Link>
-        <Search className="w-4 h-4 sm:block hidden" />
-        <Link className='sm:block hidden' href={'/'}>
-          <h1 className="text-2xl leading-[29.52px]">Avion</h1>
-        </Link>
-        <div className="flex gap-4 items-center">
-        <Search className="w-4 h-4 sm:hidden block" />
-          <Link className='sm:hidden' href={'/shoppingbasket'}>
-              <ShoppingCart className="w-4 h-4" />
+        <Search className="w-6 h-6" />
+        </div>
+        <div className="flex gap-5 items-center">
+        
+            <div className="flex items-center gap-5">
+            <div className="relative">
+            <Link  href={'/cart'}>
+            <ShoppingCart className="w-6 h-6" />
+            {cartQuantity > 0 && (
+            <span className="absolute -top-[6px] -right-[6px] bg-red-500 text-white text-xs w-[18px] h-[18px] flex items-center justify-center rounded-full">
+            {cartQuantity}
+            </span>
+            )}
             </Link>
+          </div>
+             <UserLogo/>
+          </div>
           {/* Menu Button for Small Screens */}
           <button
             className="sm:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <AlignRight className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-7 h-7" /> : <AlignRight className="w-6 h-6" />}
           </button>
           {/* Cart and User Icons */}
-          <div className="hidden sm:flex gap-4">
-            <Link href={'/shoppingbasket'}>
-              <ShoppingCart className="w-4 h-4" />
-            </Link>
-             <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          </div>
+         
         </div>
       </div>
 

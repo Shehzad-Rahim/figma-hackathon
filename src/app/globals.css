@@ -80,3 +80,9 @@ body {
   }
 }
 
+.success {
+  background: green;
+  color: white;
+  border-radius: 10px;
+  padding: 30px 60px;
+}
