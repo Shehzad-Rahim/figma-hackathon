@@ -15,7 +15,7 @@ export interface ProductType{
     }
     price:number,
     tags: string[];
-    
+    quantity : number
 }
 
 export interface ProductsCardType {

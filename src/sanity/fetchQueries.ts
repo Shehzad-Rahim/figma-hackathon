@@ -1,11 +1,11 @@
 
-export const catSlugQuery = `*[_type == "category"] {
-name,
-"slug": slug.current}`
+  export const catSlugQuery = `*[_type == "category"] {
+  name,
+  "slug": slug.current}`
 
 
 
-export const categoryQuery = `
+  export const categoryQuery = `
       *[_type == "category" && slug.current == $slug][0] {
         name,
         slug,

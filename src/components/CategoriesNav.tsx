@@ -39,13 +39,13 @@ const CategoriesNav = () => {
 
   return (
     <ul
-    className='sm:flex flex-col sm:flex-row justify-center gap-4  py-5 sm:gap-11 sm:bg-none bg-white sm:bg-opacity-100 bg-opacity-90'
+    className='sm:flex flex-col sm:flex-row sm:flex-wrap justify-center gap-4  md:py-4 sm:py-3 sm:gap-1 md:gap-5 lg:gap-10 sm:bg-none bg-white sm:bg-opacity-100 bg-opacity-90 '
   >
     {categories.map((category)=> {
       const isActive = pathname.startsWith(`/category/${category.slug}`)
     return (
-      <li key={category.slug} className='border-b sm:border-none border-gray-400 sm:p-0 p-3  sm:pb-0 hover:bg-white'>
-      <Link className={isActive ? "underline underline-offset-4" : ""} href={`/category/${category.slug}`}>{category.name}</Link>
+      <li key={category.slug} className='border-b sm:border-none border-gray-400 sm:p-0  sm:pb-0 hover:bg-white'>
+      <Link className={isActive ? "underline underline-offset-4 flex p-3" : "flex p-3"} href={`/category/${category.slug}`}>{category.name}</Link>
     </li>
     )
 })}

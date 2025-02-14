@@ -323,7 +323,8 @@ function CartPage() {
   const { cart, removeItem, increaseQuantity, decreaseQuantity, getSubtotal } = useCart(); // Get cart functions from context
   const router = useRouter();
   const handleCheckout = () => {
-    router.push(`/checkout?amount=${getSubtotal()}`);
+    // router.push(`/checkout?amount=${getSubtotal()}`);
+    router.push(`/checkoutPage`);
   }
 
   return (
@@ -359,11 +360,11 @@ function CartPage() {
             <div className="flex sm:gap-10 gap-8 items-center">
               <div className="flex items-center gap-3 sm:text-xl text-sm">
                 <p className="text-sm sm:hidden">Quantity:</p>
-                <button className="px-3 py-1 bg-gray-200" onClick={() => decreaseQuantity(item.id)}>
+                <button className="px-3 py-1 bg-gray-200" onClick={() => decreaseQuantity(item._id)}>
                   <LuMinus className="text-sm" />
                 </button>
                 <p className="text-lg md:text-base">{item.quantity}</p>
-                <button className="px-3 py-1 bg-gray-200" onClick={() => increaseQuantity(item.id)}>
+                <button className="px-3 py-1 bg-gray-200" onClick={() => increaseQuantity(item._id)}>
                   <LuPlus className="text-sm" />
                 </button>
               </div>
@@ -371,7 +372,7 @@ function CartPage() {
                 <p className="text-sm sm:hidden">Total:</p>
                 <p className="text-sm md:text-base">${item.price * item.quantity}</p>
               </div>
-              <button className="text-sm mt-2" onClick={() => removeItem(item.id)}>
+              <button className="text-sm " onClick={() => removeItem(item._id)}>
                 <MdDeleteForever className="sm:text-2xl text-xl" />
               </button>
             </div>

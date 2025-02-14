@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
 export interface CartItem {
-  id: number;
+  _id: string;
   name: string;
   description?: string;
   image: string;
@@ -13,9 +13,9 @@ export interface CartItem {
 interface CartContextType {
   cart: CartItem[];
   addToCart: (item: CartItem, quantity: number) => void;
-  removeItem: (id: number) => void;
-  increaseQuantity: (id: number) => void;
-  decreaseQuantity: (id: number) => void;
+  removeItem: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
   getSubtotal: () => number;
   cartQuantity: number;
   clearCart: () => void;
@@ -50,12 +50,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // 🟢 3. Add Item to Cart (Fix Quantity Update)
   const addToCart = (item: CartItem, quantity: number) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+      const existingItem = prevCart.find((cartItem) => cartItem._id === item._id);
 
       if (existingItem) {
         // 🔹 If item exists, update the quantity
         return prevCart.map((cartItem) =>
-          cartItem.id === item.id
+          cartItem._id === item._id
             ? { ...cartItem, quantity: cartItem.quantity + quantity }
             : cartItem
         );
@@ -67,28 +67,28 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   // 🟢 4. Remove Item from Cart
-  const removeItem = (id: number) => {
+  const removeItem = (id: string) => {
     setCart((prevCart) => {
-      const updatedCart = prevCart.filter((item) => item.id !== id);
+      const updatedCart = prevCart.filter((item) => item._id !== id);
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
 
   // 🟢 5. Increase Quantity
-  const increaseQuantity = (id: number) => {
+  const increaseQuantity = (id: string) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item._id === id ? { ...item, quantity: item.quantity + 1 } : item
       )
     );
   };
 
   // 🟢 6. Decrease Quantity (but not below 1)
-  const decreaseQuantity = (id: number) => {
+  const decreaseQuantity = (id: string) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id && item.quantity > 1
+        item._id === id && item.quantity > 1
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
